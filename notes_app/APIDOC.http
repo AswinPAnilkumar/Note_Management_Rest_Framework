@@ -1,0 +1,128 @@
+#API for RegisterView
+###
+POST http://127.0.0.1:8000/register/
+Content-Type: application/json
+
+{
+    "username":"Unni",
+    "password":"unni@123",
+    "email":"unni@gmail.com"
+}
+
+#API for login(token generation)********************************************************************
+###
+POST http://127.0.0.1:8000/login/
+Content-Type: application/json
+
+{
+    "username" : "Aljin",
+    "password" : "aljin@123"
+}
+
+#API for UserView**************************************************************************************
+###
+GET http://127.0.0.1:8000/users/
+Accept: application/json
+
+#API for NoteListCreateView******************************************************************************
+###
+GET http://127.0.0.1:8000/notes/
+Accept: application/json
+Authorization: Token d3ef770a3506f3c438fbf362c0802fb676788c43
+
+###
+POST http://127.0.0.1:8000/notes/
+Content-Type:  application/json
+Authorization: Token d3ef770a3506f3c438fbf362c0802fb676788c43
+
+{
+    "title" : "Intoduction to python",
+    "description" : "Python is a object oriented programming language"
+}
+
+#API for NoteRetriveUpdateDeleteView******************************************************************
+###
+GET http://127.0.0.1:8000/notes/1/
+Accept: application/json
+Authorization: Token d3ef770a3506f3c438fbf362c0802fb676788c43
+
+###
+PUT http://127.0.0.1:8000/notes/1/
+Content-Type: application/json
+Authorization: Token d3ef770a3506f3c438fbf362c0802fb676788c43
+
+{
+    "title" : "Intoduction to python",
+    "description" : "Python is a interpreted programming language"
+}
+
+###
+DELETE http://127.0.0.1:8000/notes/1/
+Authorization: Token d3ef770a3506f3c438fbf362c0802fb676788c43
+
+#API for jwt_login(token generation)
+###
+POST http://127.0.0.1:8000/jwt_login/
+Content-Type: application/json
+
+{
+    "username" : "Unni",
+    "password" : "unni@123"
+}
+
+#API for TaskListCreateView
+###
+GET http://127.0.0.1:8000/tasks/
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MjM0MTc2LCJpYXQiOjE3OTUyMzM4NzYsImp0aSI6IjlhNTdkZDM1NDc0MTQyYjFiZGM1ZDliZTA0OTM2NTAzIiwidXNlcl9pZCI6IjUifQ.QVIkw27CjPYpxheRQiHt7No1mlLGtRjoU6iSTNebl70
+###
+POST http://127.0.0.1:8000/tasks/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTUyMTM5LCJpYXQiOjE3OTUxNTE4MzksImp0aSI6IjE2Mzg5MjUyN2Y0YjQwZGY4MzA2NDFkM2RkMjY4YWRmIiwidXNlcl9pZCI6IjUifQ.FVo82Fm49kHl8yOoYAlI9u_UwdvTP9VU_ghQu2MGKe0
+    
+{    
+    "title" : "Number palindrome",
+    "description" : "program to check whether the number is palindrome or not?",
+    "due_date" : "2026-11-30"
+}
+
+#API for Token refresh
+###
+POST http://127.0.0.1:8000/refresh/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTUwMTMzLCJpYXQiOjE3OTUxNDk4MzMsImp0aSI6IjAzZjQwZjA1MGMyYTRiNDM5OTJjOGFjMmNhZDQzMGQ2IiwidXNlcl9pZCI6IjUifQ.nHJnshfcRV6KUuMnUSdNXeyzq0rfzbwQe8KNnqL50Pg
+
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5NTIzNjIzMywiaWF0IjoxNzk1MTQ5ODMzLCJqdGkiOiIyMDVmNWNhNjMwMzk0Y2M0OTZmNTIwZDIxNTRjNDAyYyIsInVzZXJfaWQiOiI1In0.VfAJezN3fXN2wUw0lBMPjglXMMyBavZZsSUF30BMEFU"
+}
+
+#API for TaskRetriveUpdateDeleteView
+###
+GET http://127.0.0.1:8000/tasks/1/
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTUyMTM5LCJpYXQiOjE3OTUxNTE4MzksImp0aSI6IjE2Mzg5MjUyN2Y0YjQwZGY4MzA2NDFkM2RkMjY4YWRmIiwidXNlcl9pZCI6IjUifQ.FVo82Fm49kHl8yOoYAlI9u_UwdvTP9VU_ghQu2MGKe0
+
+###
+PUT http://127.0.0.1:8000/tasks/3/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTUyMTM5LCJpYXQiOjE3OTUxNTE4MzksImp0aSI6IjE2Mzg5MjUyN2Y0YjQwZGY4MzA2NDFkM2RkMjY4YWRmIiwidXNlcl9pZCI6IjUifQ.FVo82Fm49kHl8yOoYAlI9u_UwdvTP9VU_ghQu2MGKe0
+
+{
+    "title" : "String palindrome",
+    "description" : "program to check whether the string is palindrome or not?",
+    "due_date" : "2026-11-30"
+}
+
+###
+DELETE http://127.0.0.1:8000/tasks/2/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTUyMTM5LCJpYXQiOjE3OTUxNTE4MzksImp0aSI6IjE2Mzg5MjUyN2Y0YjQwZGY4MzA2NDFkM2RkMjY4YWRmIiwidXNlcl9pZCI6IjUifQ.FVo82Fm49kHl8yOoYAlI9u_UwdvTP9VU_ghQu2MGKe0
+
+#API for Jwt_Logout
+###
+POST http://127.0.0.1:8000/jwt_logout/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MjM0ODI0LCJpYXQiOjE3OTUyMzQ1MjQsImp0aSI6IjM5Mjk5NTVjNWE1ZjQxYTU4MDFkMTQ0ZTgzNzJkNjIxIiwidXNlcl9pZCI6IjUifQ.VIbbN6FZnRb-yK9mcNGHbYyVVyTxA5_weDnkm86MPx8
+
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5NTMyMDkyNCwiaWF0IjoxNzk1MjM0NTI0LCJqdGkiOiJjZjBkMGVhNWQ3Zjc0Y2E4YWFjYjUyYTBmMzljY2M3MSIsInVzZXJfaWQiOiI1In0.EIF2IsMmk93p40OV2-doBzlzLCVpjTDnlz29YwoRiAg"
+}
